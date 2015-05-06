@@ -35,6 +35,22 @@ class TestFamilyTree(unittest.TestCase):
         c_add = tree_root.add_child('John', 'Jim')
         assert c_add is False
 
+    def test_finding_grandparent_valid(self):
+        '''
+        This tests the find_grandparent method when there is a valid
+        grandparent present in the tree. Tests both one and two levels
+        deep on the tree.
+        '''
+        tree_root = FamilyMember('Jack')
+        tree_root.add_child('Jack', 'Sal')
+        tree_root.add_child('Sal', 'Cynthia')
+        grandparent = tree_root.find_grandparent('Cynthia')
+        assert grandparent == 'Jack'
+
+        tree_root.add_child('Cynthia', 'Sam')
+        grandparent = tree_root.find_grandparent('Sam')
+        assert grandparent == 'Sal'
+
 
 if __name__ == '__main__':
     unittest.main()
