@@ -25,5 +25,7 @@ class FamilyMember:
             current_member.children.append(child)
             return True
         for child in current_member.children:
-            return child.add_child(parent, name)
+            c_add = child.add_child(parent, name)
+            if c_add is True:
+                return True
         return False
