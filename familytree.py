@@ -47,3 +47,13 @@ class FamilyMember:
             if gpa is not False:
                 return gpa
         return False
+
+    def has_no_siblings(self):
+        '''
+        When run, this method prints the names of people in the tree
+        with no siblings.
+        '''
+        if len(self.children) == 1:
+            print(self.children[0].name)
+        for child in self.children:
+            child.has_no_siblings()
