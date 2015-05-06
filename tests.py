@@ -5,9 +5,6 @@ from familytree import FamilyMember
 
 
 class TestFamilyTree(unittest.TestCase):
-    # def setUp(self):
-    #    self.held, sys.stdout = sys.stdout, StringIO()
-
     def test_init_of_family_member(self):
         member = FamilyMember('John')
         assert member.name == 'John'
@@ -83,8 +80,18 @@ class TestFamilyTree(unittest.TestCase):
         tree_root.add_child('Jack', 'Donna')
         tree_root.add_child('Donna', 'Sam')
         tree_root.has_no_siblings()
-        self.assertEqual(sys.stdout.getvalue(),'Donna\nSam\n')
+        self.assertEqual(sys.stdout.getvalue(), 'Donna\nSam\n')
 
+    def test_printing_no_children(self):
+        '''
+        This tests that the names in the tree with no siblings
+        are printed when running the has_no_siblings method.
+        '''
+        self.held, sys.stdout = sys.stdout, StringIO()
+        tree_root = FamilyMember('Jack')
+        tree_root.add_child('Jack', 'Donna')
+        tree_root.has_no_children()
+        self.assertEqual(sys.stdout.getvalue(), 'Donna\n')
 
 
 if __name__ == '__main__':
