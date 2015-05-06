@@ -80,7 +80,7 @@ class TestFamilyTree(unittest.TestCase):
         tree_root.add_child('Jack', 'Donna')
         tree_root.add_child('Donna', 'Sam')
         tree_root.has_no_siblings()
-        self.assertEqual(sys.stdout.getvalue(), 'Donna\nSam\n')
+        self.assertEqual(sys.stdout.getvalue(), 'Jack\nDonna\nSam\n')
 
     def test_printing_no_children(self):
         '''

@@ -53,6 +53,8 @@ class FamilyMember:
         When run, this method prints the names of people in the tree
         with no siblings.
         '''
+        if self.parent is None:
+            print(self.name)
         if len(self.children) == 1:
             print(self.children[0].name)
         for child in self.children:
