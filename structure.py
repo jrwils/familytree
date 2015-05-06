@@ -21,5 +21,9 @@ def create_tree_structure():
 
 if __name__ == '__main__':
     mytree = create_tree_structure()
+    print("Kevin's grandparent:")
     print(mytree.find_grandparent('Kevin'))
+    print("Family members without siblings:")
     mytree.has_no_siblings()
+    print("Family members without children:")
+    mytree.has_no_children()
