@@ -9,7 +9,7 @@ class TestFamilyTree(unittest.TestCase):
         assert member.parent is None
         assert member.children == []
 
-    def test_adding_child_with_parent(self):
+    def test_adding_child_to_parent(self):
         '''
         This tests the add_child method of FamilyMember to make sure
         a child is successfully added to a member's children array.
@@ -19,10 +19,12 @@ class TestFamilyTree(unittest.TestCase):
         c_add = tree_root.add_child('John', 'Jim')
         assert c_add is True
         assert tree_root.children[0].name == 'Jim'
+        assert tree_root.children[0].parent.name == 'John'
 
         c_add2 = tree_root.add_child('Jim', 'Sally')
         assert c_add2 is True
         assert tree_root.children[0].children[0].name == 'Sally'
+        assert tree_root.children[0].children[0].parent.name == 'Jim'
 
 
 if __name__ == '__main__':
