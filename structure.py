@@ -1,5 +1,6 @@
 from familytree import FamilyMember
 
+
 def create_tree_structure():
     tree_root = FamilyMember('Nancy')
     tree_root.add_child('Nancy', 'Adam')
@@ -16,3 +17,8 @@ def create_tree_structure():
     tree_root.add_child('George', 'Patrick')
     tree_root.add_child('George', 'Robert')
     return tree_root
+
+
+if __name__ == '__main__':
+    mytree = create_tree_structure()
+    assert mytree.find_grandparent('Kevin') == 'Nancy'
