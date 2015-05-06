@@ -26,6 +26,15 @@ class TestFamilyTree(unittest.TestCase):
         assert tree_root.children[0].children[0].name == 'Sally'
         assert tree_root.children[0].children[0].parent.name == 'Jim'
 
+    def test_adding_child_with_no_parent_entry(self):
+        '''
+        This tests the add_child method when passed a parent name
+        that does not exist in the tree. This should always return False.
+        '''
+        tree_root = FamilyMember('Jack')
+        c_add = tree_root.add_child('John', 'Jim')
+        assert c_add is False
+
 
 if __name__ == '__main__':
     unittest.main()
