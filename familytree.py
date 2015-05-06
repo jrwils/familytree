@@ -57,3 +57,13 @@ class FamilyMember:
             print(self.children[0].name)
         for child in self.children:
             child.has_no_siblings()
+
+    def has_no_children(self):
+        '''
+        This method prints the names of the people in the tree
+        with no children.
+        '''
+        if len(self.children) == 0:
+            print(self.name)
+        for child in self.children:
+            child.has_no_children()
