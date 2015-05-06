@@ -38,7 +38,7 @@ class FamilyMember:
         or the relationship is invalid, it returns False.
         '''
         if self.name == name:
-            if self.parent is not None or self.parent.parent is not None:
+            if self.parent is not None and self.parent.parent is not None:
                 return self.parent.parent.name
             else:
                 return False
