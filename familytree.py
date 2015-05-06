@@ -29,3 +29,21 @@ class FamilyMember:
             if c_add is True:
                 return True
         return False
+
+    def find_grandparent(self, name):
+        '''
+        This method finds the grandparent of a name in
+        the tree. If the grandparent is found, the name of the
+        grandparent is returned. If the grandparent is not found
+        or the relationship is invalid, it returns False.
+        '''
+        if self.name == name:
+            if self.parent is not None or self.parent.parent is not None:
+                return self.parent.parent.name
+            else:
+                return False
+        for child in self.children:
+            gpa = child.find_grandparent(name)
+            if gpa is not False:
+                return gpa
+        return False
